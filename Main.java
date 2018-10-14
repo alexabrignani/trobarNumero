@@ -9,16 +9,19 @@ public class Main {
         long startTime=System.currentTimeMillis();
         int numeroTrobar = 5;
         Random numeroLlista= new Random();
-        ArrayList llistaNumeros=new ArrayList();
-        for (int i=0;i<500000;i++){
+        ArrayList<Integer> llistaNumeros=new ArrayList<Integer>();
+        for (int i=0;i<700000;i++){
             llistaNumeros.add(numeroLlista.nextInt(100));
         }
-
-        if (llistaNumeros.contains(5)){
-            long endTime = System.currentTimeMillis()-startTime;
-            System.out.println(endTime);
-        }else {
-            System.out.println("No el conte");
+        long endTime=0;
+        for (int i=0;i<llistaNumeros.size();i++){
+            if (llistaNumeros.get(i)%2==0){
+                if (llistaNumeros.get(i)==5){
+                    endTime = System.currentTimeMillis()-startTime;break;
+                }
+            }
         }
+        System.out.println(endTime);
+
     }
 }
